@@ -6,7 +6,7 @@ var formatNumber = d3.format(",d");
 var projection = d3.geo.albers()
 			.center([0, 35.5175])
 			.rotate([104, 0, 2])
-			.parallels([35,37])
+			.parallels([34,37])
 			.scale(9000)
 			.translate([-width/2-800 , 650]);
 			
