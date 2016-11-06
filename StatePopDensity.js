@@ -3,12 +3,14 @@ var width = 1500,
 
 var formatNumber = d3.format(",d");
 
+var prevColorOnOff;
+
 var projection = d3.geo.albers()
 			.center([0, 35.5175])
-			.rotate([104, 0, 0])
+			.rotate([104, 2, -12])
 			.parallels([35,37])
-			.scale(9000)
-			.translate([-width/2 , 850]);
+			.scale(9500)
+			.translate([-2850 , 350]);
 			
 		var path = d3.geo.path().projection(projection);
 //var path = d3.geo.path()
@@ -117,7 +119,6 @@ g.call(xAxis).append("text")
 d3.select(self.frameElement).style("height", height + "px");
 
 function changeMap(){
-    
     if(!colorOnOff){//change the color of the scale
             g.selectAll(".scaleThingy")
             .data(altColor.range().map(function(d, i) {
@@ -132,7 +133,7 @@ function changeMap(){
             .attr("x", function(d) { return d.x0; })
             .attr("width", function(d) { return d.x1 - d.x0; })
             .style("fill", function(d) { return d.z; });
-        
+
             svg.append("g")
                   .attr("class", "tract")
                   .attr("clip-path", "url(#clip-land)")
@@ -157,7 +158,7 @@ function changeMap(){
                 .attr("x", function(d) { return d.x0; })
                 .attr("width", function(d) { return d.x1 - d.x0; })
                 .style("fill", function(d) { return d.z; });
-        
+
             svg.append("g")
                   .attr("class", "tract")
                   .attr("clip-path", "url(#clip-land)")
@@ -171,7 +172,7 @@ function changeMap(){
                   // Draw county borders.
 
     }
-    console.log(countyLine);
+
     if(countyLine){
         svg.append("path")
             .datum(topojson.mesh(tn, tn.objects.tl_2013_47_cousub, function(a, b) { return a !== b; }))
@@ -185,7 +186,10 @@ function changeMap(){
             .attr("class", "census-border")
             .attr("d", path);
     }
-    console.log("we in it"+colorOnOff);
+    prevColorOnOff = colorOnOff;
+    prevCountyLine = countyLine;
+    prevTractLine  = tractLine;
+    
 }
     
     document.getElementById("button1").onclick = function(){colorOnOff = !colorOnOff
