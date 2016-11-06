@@ -1,0 +1,47 @@
+svg {
+  font: 10px sans-serif;
+}
+
+.caption {
+  font-weight: bold;
+}
+
+.key path {
+  display: none;
+  
+}
+
+.key line {
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.county-border {
+  fill: none;
+  stroke: #000;
+  stroke-opacity: .4;
+}
+.census-border {
+  fill: none;
+  stroke: #000;
+  stroke-opacity: .2;
+}
+.disButt{
+    position: left;
+    width: 100px;
+    height: 100px;
+}
+.button1{
+    position: sticky;
+
+}
+.button2{
+    position: sticky;
+
+  
+}
+.button3{
+    position: sticky;
+
+
+}
