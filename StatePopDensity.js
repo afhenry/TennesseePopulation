@@ -8,7 +8,7 @@ var projection = d3.geo.albers()
 			.rotate([104, 0, 0])
 			.parallels([35,37])
 			.scale(9000)
-			.translate([-width/2-800 , 650]);
+			.translate([-width/2-500 , 750]);
 			
 		var path = d3.geo.path().projection(projection);
 //var path = d3.geo.path()
